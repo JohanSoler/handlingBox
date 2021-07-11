@@ -1,0 +1,25 @@
+.password {
+    display: flex;
+}
+
+.image img {
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 30px;
+}
+
+.form {
+    margin: auto;
+    margin-top: 20%;
+    width: 500px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+button {
+    margin-left: 45%;
+}

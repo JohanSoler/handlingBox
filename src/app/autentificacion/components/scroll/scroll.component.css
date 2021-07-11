@@ -1,0 +1,30 @@
+.titleFront {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #516ADB;
+    color: white;
+}
+
+h1 {
+    font-family: "OtomanopeeOne-Regular";
+    text-align: center;
+    letter-spacing: 5px;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+h3 {
+    font-family: "OtomanopeeOne-Regular";
+    font-size: x-large;
+}
+
+.title {
+    padding-top: 50px;
+}
+
+.subTitle {
+    padding-top: 90%;
+    text-align: left;
+    padding-left: 50px;
+}

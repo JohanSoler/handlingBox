@@ -1,0 +1,17 @@
+* {
+    font-family: "OtomanopeeOne-Regular";
+}
+
+.generalCont {
+    display: grid;
+    grid-template-columns: 30% auto;
+}
+
+
+/*
+#8F3644
+#DB2E49
+#516ADB
+#448F50
+#7FDB8F
+*/

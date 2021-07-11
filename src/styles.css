@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "OtomanopeeOne-Regular";
+}
+
+@font-face {
+    font-family: "OtomanopeeOne-Regular";
+    src: url("assets/Otomanopee_One/OtomanopeeOne-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
