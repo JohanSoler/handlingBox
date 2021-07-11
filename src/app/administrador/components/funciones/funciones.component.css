@@ -1,0 +1,29 @@
+.content {
+    background-color: #516adbd5;
+    height: 150px;
+    width: 300px;
+    height: 90%;
+    margin: auto;
+    min-height: 60vh;
+    margin-top: 25px;
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+
+.content button {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: auto;
+    background-color: #db2e48d8;
+    border-style: solid;
+}
+
+
+/*
+#8F3644
+#DB2E49
+#516ADB
+#448F50
+#7FDB8F
+*/

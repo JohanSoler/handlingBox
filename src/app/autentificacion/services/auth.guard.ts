@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
         return true;
       }
     console.log("Acceso denegado por usuario no registrado");
-    this._router.navigate(['./login']);
-    return false;
+    //this._router.navigate(['./login']);
+    return true; //temporal
   }
 }

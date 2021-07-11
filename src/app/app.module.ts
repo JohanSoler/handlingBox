@@ -15,6 +15,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { SaldoComponent } from './administrador/components/saldo/saldo.component';
+import { TablaComponent } from './administrador/components/tabla/tabla.component';
+import { FuncionesComponent } from './administrador/components/funciones/funciones.component';
+import { MatTableModule } from '@angular/material/table';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,10 @@ import { HttpClientModule } from '@angular/common/http';
     AutentificacionPageComponent,
     AdministradorPageComponent,
     InputComponent,
-    ScrollComponent
+    ScrollComponent,
+    SaldoComponent,
+    TablaComponent,
+    FuncionesComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +41,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatIconModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

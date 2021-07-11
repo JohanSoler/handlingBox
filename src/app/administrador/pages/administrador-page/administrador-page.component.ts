@@ -12,4 +12,6 @@ export class AdministradorPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  deslogear(){}
+
 }
