@@ -16,8 +16,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
       let user = this._autentificationService.user;
-      console.log(user);
-      if(user.user.length > 5){
+      if(user.user.length > 1){
         return true;
       }
     console.log("Acceso denegado por usuario no registrado");

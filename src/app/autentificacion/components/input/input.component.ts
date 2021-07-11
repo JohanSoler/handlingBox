@@ -23,8 +23,7 @@ export class InputComponent implements OnInit {
   }
 
   autentificar(){
-    console.log(this._autentificationServices.user);
-    console.log(this.user);
+    this._autentificationServices.autentificar(this.user);
   }
 
   changeStatus(){

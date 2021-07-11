@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { User } from '../interface/user.interface';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +16,30 @@ export class AutentificacionService {
     return {...this._user};
   }
 
-  constructor() { 
+  constructor(private _route: Router,
+              private http: HttpClient) { 
     this._user = {
       user: "",
       password: ""
     }
   }
+
+  autentificar(user:User){
+    let userTemp = user.user.toUpperCase();
+    if(user.user.length > 1){
+      this.http.get<User[]>(`${this._apiUrl}/user/${userTemp}`).subscribe(
+        (res) => {
+          if(res[0].password == user.password){
+            this._user = res[0];
+            this._route.navigate(['administration']);
+          } else {
+            console.log('Constraseña Incorrecta');
+            user.password = "";
+            user.user = userTemp;
+          }
+        }
+      );
+    }
+  }
+
 }
