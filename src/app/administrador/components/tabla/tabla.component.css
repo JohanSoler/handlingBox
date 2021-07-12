@@ -6,5 +6,9 @@ table {
     margin: 10px 10px 10px 10px;
     overflow-y: scroll;
     width: 90%;
-    height: 550px;
+    height: 500px;
+}
+
+.seleccionado {
+    background-color: brown;
 }

@@ -11,7 +11,7 @@
 }
 
 .header button {
-    width: 150px;
+    width: 100%;
     margin: 30px auto 30px auto;
     padding: 0px;
 }
@@ -28,8 +28,8 @@ h1 {
 
 .content {
     display: grid;
-    grid-template-columns: 70% auto;
-    min-height: 75vh;
+    height: 80%;
+    grid-template-columns: 80% auto;
 }
 
 footer {
@@ -37,5 +37,10 @@ footer {
     padding-top: 30px;
     color: white;
     background-color: #516ADB;
-    height: 89px;
+    height: 100%;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 130px auto 89px;
 }

@@ -1,0 +1,49 @@
+<div class="emergente">
+    <h2 mat-dialog-title>Nueva Entrada</h2>
+    <div mat-dialog-content>
+
+        <form autocomplete="off">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">  Descripción  </span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" [(ngModel)]="fila.description" name="description">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">  Monto  </span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" [(ngModel)]="fila.amount" name="amount">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="fila.status" name="status">
+                    <option selected value="------">------</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Pagado">Pagado</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">¿Mensual?</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="mensual" name="mes">
+                    <option selected value=true>Sí</option>
+                    <option value=false>No</option>
+                </select>
+            </div>
+
+            <div class="end">
+                <mat-form-field appearance="fill">
+                    <mat-label>Fecha</mat-label>
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="fila.date" name="date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <button mat-button mat-dialog-close mat-raised-button color="primary" (click)="guardar()">Guardar </button>
+            </div>
+        </form>
+    </div>
+</div>

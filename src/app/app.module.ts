@@ -20,6 +20,12 @@ import { TablaComponent } from './administrador/components/tabla/tabla.component
 import { FuncionesComponent } from './administrador/components/funciones/funciones.component';
 import { MatTableModule } from '@angular/material/table';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { CambiarEstadoComponent } from './administrador/components/funciones/emergentes/cambiar-estado/cambiar-estado.component';
+import { DetallesComponent } from './administrador/components/funciones/emergentes/detalles/detalles.component';
+import { NuevaEntradaComponent } from "./administrador/components/funciones/emergentes/nueva-entrada/nueva-entrada.component";
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -30,7 +36,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ScrollComponent,
     SaldoComponent,
     TablaComponent,
-    FuncionesComponent
+    FuncionesComponent,
+    CambiarEstadoComponent,
+    DetallesComponent,
+    NuevaEntradaComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +52,25 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatInputModule,
     HttpClientModule,
     MatTableModule,
-    NgbModule
+    NgbModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+  ],
+  exports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    HttpClientModule,
+    MatTableModule,
+    NgbModule,
+    MatDialogModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

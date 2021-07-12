@@ -20,14 +20,15 @@ export class AutentificacionService {
               private http: HttpClient) { 
     this._user = {
       user: "",
-      password: ""
+      password: "",
+      information: ""
     }
   }
 
-  autentificar(user:User){
+  async autentificar(user:User){
     let userTemp = user.user.toUpperCase();
     if(user.user.length > 1){
-      this.http.get<User[]>(`${this._apiUrl}/user/${userTemp}`).subscribe(
+      await this.http.get<User[]>(`${this._apiUrl}/user/${userTemp}`).subscribe(
         (res) => {
           if(res[0].password == user.password){
             this._user = res[0];

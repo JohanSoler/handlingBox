@@ -1,21 +1,51 @@
 <div class="content">
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Mes:</label>
+        </div>
+        <select class="custom-select" id="inputGroupSelect01" name="mes">
+            <option selected value=0>Enero</option>
+            <option value=1>Febrero</option>
+            <option value=2>Msrzo</option>
+            <option value=3>Abril</option>
+            <option value=4>Mayo</option>
+            <option value=5>Junio</option>
+            <option value=6>Julio</option>
+            <option value=7>Agosto</option>
+            <option value=8>Septiembre</option>
+            <option value=9>Octubre</option>
+            <option value=10>Noviembre</option>
+            <option value=11>Diciembre</option>
+        </select>
+    </div>
+
     <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Country</th>
-                <th scope="col">Area</th>
-                <th scope="col">Population</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Monto</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Estado</th>
+                <th scope="col"></th>
+
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let country of countries; index as i">
+            <tr *ngFor="let fila of tabla; index as i">
                 <th scope="row">{{ i + 1 }}</th>
-                <td>
-                    <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px"> {{ country.name }}
-                </td>
-                <td>{{ country.area | number }}</td>
-                <td>{{ country.population | number }}</td>
+                <th scope="row"> {{fila.description}} </th>
+                <th scope="row"> {{fila.amount | number}} </th>
+                <th scope="row"> {{fila.date}} </th>
+                <th scope="row"> {{fila.status}} </th>
+                <th>
+                    <div class="example-button-container">
+                        <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon">
+                        <mat-icon (click)="eliminar(fila)">delete</mat-icon>
+                    </button>
+                    </div>
+                </th>
             </tr>
         </tbody>
     </table>
