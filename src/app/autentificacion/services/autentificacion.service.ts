@@ -43,4 +43,14 @@ export class AutentificacionService {
     }
   }
 
+  desloguear(){
+    let userTemp: User = {
+      user: "",
+      password: "",
+      information: ""
+    }
+    this._user = userTemp;
+    this._route.navigate(['login']);
+  }
+
 }

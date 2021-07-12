@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AutentificacionService } from '../../../autentificacion/services/autentificacion.service';
 
 @Component({
   selector: 'app-administrador-page',
@@ -7,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdministradorPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _autentificacionService: AutentificacionService) { }
 
   ngOnInit(): void {
   }
 
-  deslogear(){}
+  deslogear(){
+    this._autentificacionService.desloguear();
+  }
 
 }
