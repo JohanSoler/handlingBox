@@ -5,9 +5,10 @@ import { AutentificacionPageComponent } from './autentificacion/pages/autentific
 import { AuthGuard } from './autentificacion/services/auth.guard';
 
 const routes: Routes = [
+  {path: '', pathMatch: 'full', redirectTo:'/login'},
   {path: 'login', component: AutentificacionPageComponent},
   {path: 'administration', component: AdministradorPageComponent, canActivate: [  AuthGuard ]},
-  {path: '**', redirectTo: 'administration'}
+  {path: '**', redirectTo: 'login'}
 ];
 
 @NgModule({
