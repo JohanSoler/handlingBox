@@ -148,6 +148,7 @@ export class TableService {
     }
     return await this.http.patch<Fila>(`${this._apiUrl}/account/${fila._id}`,tempFila).subscribe(
       (res) => {
+        console.log(res);
         this.tabla = [];
         this.initTable();
       }

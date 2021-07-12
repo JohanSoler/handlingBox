@@ -38,7 +38,7 @@ export class TablaComponent implements OnInit {
     const dialogRef = this.dialog.open(CambiarEstadoComponent);
 
     dialogRef.afterClosed().subscribe(async result => {
-      console.log(this.tabla);
+      
     });
   }
 
