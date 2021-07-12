@@ -13,9 +13,24 @@ import { DetallesComponent } from "../funciones/emergentes/detalles/detalles.com
 export class TablaComponent implements OnInit {
 
   tabla: Fila[];
+  mes: number;
   constructor(private _tableService: TableService,
               public dialog: MatDialog) {
     this.tabla = _tableService.tabla;
+    this.mes = _tableService.mes;
+    this.filtrarTabla();
+    setInterval(()=>{
+      this.filtrarTabla();
+    }, 500);
+  }
+
+  filtrarTabla(){
+    this._tableService.filtrar();
+    this.tabla = this._tableService.tabla;
+  }
+
+  cambiarFiltro(){
+    this._tableService.cambiarMes(this.mes);
   }
 
   editar(fila:Fila){
@@ -23,10 +38,7 @@ export class TablaComponent implements OnInit {
     const dialogRef = this.dialog.open(CambiarEstadoComponent);
 
     dialogRef.afterClosed().subscribe(async result => {
-      let filaTemp = this._tableService.seleccion;
-
-      await this._tableService.updateRow(filaTemp);
-
+      console.log(this.tabla);
     });
   }
 
@@ -35,7 +47,7 @@ export class TablaComponent implements OnInit {
     const dialogRef = this.dialog.open(DetallesComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      this._tableService.removeRow(fila);
+      
     });
   }
 

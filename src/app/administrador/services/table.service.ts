@@ -11,15 +11,21 @@ export class TableService {
 
   private _apiUrl: String = 'https://handlingboxback.herokuapp.com';
   tabla: Fila[];
+  tablaInicial: Fila[];
   seleccion: Fila;
   _tabla: Table;
-
+  mes: number;
+  suma: number;
   constructor(private http:HttpClient,
               private _autentificacionService: AutentificacionService) {
     this.tabla = [];
+    this.tablaInicial = [];
     this._tabla = {
       account: []
     };
+    let date = new Date;
+    this.mes = date.getMonth()+1;
+    this.suma = 0;
     this.seleccion = {
       description: "",
       amount: 0,
@@ -27,6 +33,38 @@ export class TableService {
       status: ""
     }
     this.initTable();
+  }
+
+  cambiarMes(mes: number){
+    this.mes = mes;
+    this.tabla = [];
+    this.initTable();
+    this.filtrar();
+  }
+
+  filtrar(){
+    let sumaTemp = 0;
+    let data: Fila[] = [];
+    this.tabla.forEach(element => {
+      let temp = element.date.split('/');
+      if(temp.length==1){
+        data.push(element);
+        sumaTemp += element.amount;
+      }else if(this.mes == 13){
+        data.push(element);
+        sumaTemp += element.amount;
+      }else if(this.mes == 14){
+        if(temp.length == 1){
+          data.push(element);
+          sumaTemp += element.amount;
+        }
+      }else if(temp[1]==`${this.mes}`){
+        data.push(element);
+        sumaTemp += element.amount;
+      }
+    });
+    this.suma = sumaTemp;
+    this.tabla = data;
   }
 
   async initTable(){
@@ -43,10 +81,12 @@ export class TableService {
       await this.http.get<Fila[]>(`${this._apiUrl}/account/${element}`).subscribe(
         (res) => {
           this.tabla.push(res[0]);
+          this.tablaInicial.push(res[0]);
         }
       );
     });
   }
+
 
   async postAccount(fila: Fila){
     await this.http.post<Fila>(`${this._apiUrl}/account`,fila).subscribe(
@@ -100,9 +140,16 @@ export class TableService {
   }
 
   async updateRow(fila:Fila){
-    return await this.http.patch<Fila>(`${this._apiUrl}/account/${fila._id}`,fila).subscribe(
+    let tempFila: Fila = {
+      description: fila.description,
+      amount: fila.amount,
+      status: fila.status,
+      date: fila.date
+    }
+    return await this.http.patch<Fila>(`${this._apiUrl}/account/${fila._id}`,tempFila).subscribe(
       (res) => {
-        console.log(res);
+        this.tabla = [];
+        this.initTable();
       }
     );
   }

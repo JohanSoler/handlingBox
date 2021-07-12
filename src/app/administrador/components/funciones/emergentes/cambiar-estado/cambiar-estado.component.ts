@@ -35,18 +35,17 @@ export class CambiarEstadoComponent implements OnInit {
 
   Actualizar(){
     let filaF: Fila = {
+      _id: this.filaService._id,
       description: this.fila.description,
       amount: this.fila.amount,
       status: this.fila.status,
       date: `${this.fila.date?.getDate()}/${this.fila.date?.getMonth()!+1}/${this.fila.date?.getFullYear()}`
     }
-    console.log(this.fila);
-    console.log(this.mensual);
     if(this.mensual){
       filaF.date = "Mensual";
     }
 
-    this.filaService = filaF;
+    this._tableService.updateRow(filaF);
 
   }
 

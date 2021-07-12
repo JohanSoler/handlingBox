@@ -7,23 +7,22 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">  Descripción  </span>
                 </div>
-                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" disabled>
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" [(ngModel)]="filaService.description" name="description" disabled>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">  Monto  </span>
                 </div>
-                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" disabled>
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" [(ngModel)]="filaService.amount" name="amount" disabled>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Options</label>
                 </div>
-                <select class="custom-select" id="inputGroupSelect01" disabled>
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="filaService.status" name="status">
+                    <option selected value="------">------</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Pagado">Pagado</option>
                 </select>
             </div>
 
@@ -34,7 +33,7 @@
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
-                <button mat-button mat-dialog-close mat-raised-button color="primary">Eliminar </button>
+                <button mat-button mat-dialog-close mat-raised-button color="primary" (click)="eliminar()">Eliminar </button>
             </div>
         </form>
     </div>

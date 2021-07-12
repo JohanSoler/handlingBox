@@ -12,3 +12,11 @@ table {
 .seleccionado {
     background-color: brown;
 }
+
+.negativo {
+    color: red;
+}
+
+.positivo {
+    color: green;
+}

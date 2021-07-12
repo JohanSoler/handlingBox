@@ -4,20 +4,23 @@
         <div class="input-group-prepend">
             <label class="input-group-text" for="inputGroupSelect01">Mes:</label>
         </div>
-        <select class="custom-select" id="inputGroupSelect01" name="mes">
-            <option selected value=0>Enero</option>
-            <option value=1>Febrero</option>
-            <option value=2>Msrzo</option>
-            <option value=3>Abril</option>
-            <option value=4>Mayo</option>
-            <option value=5>Junio</option>
-            <option value=6>Julio</option>
-            <option value=7>Agosto</option>
-            <option value=8>Septiembre</option>
-            <option value=9>Octubre</option>
-            <option value=10>Noviembre</option>
-            <option value=11>Diciembre</option>
+        <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="mes" name="mes">
+            <option selected value=1>Enero</option>
+            <option value=2>Febrero</option>
+            <option value=3>Marzo</option>
+            <option value=4>Abril</option>
+            <option value=5>Mayo</option>
+            <option value=6>Junio</option>
+            <option value=7>Julio</option>
+            <option value=8>Agosto</option>
+            <option value=9>Septiembre</option>
+            <option value=10>Octubre</option>
+            <option value=11>Noviembre</option>
+            <option value=12>Diciembre</option>
+            <option value=13>Todo</option>
+            <option value=14>Mensual</option>
         </select>
+        <button mat-button mat-raised-button color="primary" (click)="cambiarFiltro()">Filtrar </button>
     </div>
 
     <table class="table table-striped">
@@ -36,13 +39,20 @@
             <tr *ngFor="let fila of tabla; index as i">
                 <th scope="row">{{ i + 1 }}</th>
                 <th scope="row"> {{fila.description}} </th>
-                <th scope="row"> {{fila.amount | number}} </th>
+                <th scope="row" [ngClass]="{positivo: fila.amount>0, negativo: fila.amount<0}"> {{fila.amount | number}} </th>
                 <th scope="row"> {{fila.date}} </th>
                 <th scope="row"> {{fila.status}} </th>
                 <th>
                     <div class="example-button-container">
                         <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon">
                         <mat-icon (click)="eliminar(fila)">delete</mat-icon>
+                    </button>
+                    </div>
+                </th>
+                <th>
+                    <div class="example-button-container">
+                        <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon">
+                        <mat-icon (click)="editar(fila)">edit</mat-icon>
                     </button>
                     </div>
                 </th>

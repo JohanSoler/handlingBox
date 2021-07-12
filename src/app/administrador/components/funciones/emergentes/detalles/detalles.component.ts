@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TableService } from 'src/app/administrador/services/table.service';
+import { Fila } from '../../../../interface/fila.interface';
 
 @Component({
   selector: 'app-detalles',
@@ -7,8 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetallesComponent implements OnInit {
 
-  constructor() { }
+  filaService: Fila;
+  constructor(private _tableService:TableService) { 
+    this.filaService = _tableService.seleccion;
+  }
 
   ngOnInit(): void {
   }
+
+  eliminar(){
+    this._tableService.removeRow(this.filaService);
+  }
+
 }
