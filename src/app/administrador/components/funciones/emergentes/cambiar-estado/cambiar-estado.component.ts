@@ -3,6 +3,7 @@ import { Fila } from 'src/app/administrador/interface/fila.interface';
 import { TableService } from 'src/app/administrador/services/table.service';
 
 interface tempFile {
+  _id?: String,
   description: String,
   amount: number,
   status: String,
@@ -23,11 +24,13 @@ export class CambiarEstadoComponent implements OnInit {
     this.filaService = _tableService.seleccion;
     this.mensual = false;
     this.fila = {
+      _id: this.filaService._id,
       description: `${this.filaService.description}`,
       amount: this.filaService.amount,
       status: this.filaService.status,
       date: new Date
     }
+    console.log(this.fila._id);
   }
   ngOnInit(): void {
     
@@ -35,7 +38,7 @@ export class CambiarEstadoComponent implements OnInit {
 
   Actualizar(){
     let filaF: Fila = {
-      _id: this.filaService._id,
+      _id: this.fila._id,
       description: this.fila.description,
       amount: this.fila.amount,
       status: this.fila.status,
