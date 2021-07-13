@@ -44,3 +44,52 @@ body {
     display: grid;
     grid-template-rows: 130px auto 89px;
 }
+
+@media screen and (max-width: 500px) {
+    .header {
+        display: grid;
+        grid-template-rows: 30% 35% 25%;
+        color: white;
+        background-color: #516ADB;
+        height: 150px;
+        width: 100%;
+        grid-template-columns: auto;
+        justify-content: center;
+    }
+    .header button {
+        width: 40px;
+        height: 100%;
+        margin: auto;
+        margin-top: 0%;
+        margin-bottom: 0%;
+        padding: 0px;
+    }
+    h1 {
+        margin-top: 10px;
+        margin-left: 0px;
+        height: fit-content;
+        font-family: "OtomanopeeOne-Regular";
+        letter-spacing: 5px;
+        font-size: xx-large;
+        width: fit-content;
+    }
+    .content {
+        display: block;
+        margin-top: 50px;
+        height: 80%;
+        width: 480px;
+        grid-template-columns: auto;
+    }
+    footer {
+        padding-left: 50px;
+        padding-top: 30px;
+        color: white;
+        background-color: #516ADB;
+        height: 100%;
+    }
+    body {
+        display: grid;
+        width: auto;
+        grid-template-rows: 130px auto 89px;
+    }
+}

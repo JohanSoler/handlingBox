@@ -29,7 +29,7 @@ h3 {
     padding-left: 50px;
 }
 
-@media (max-width: 500px) {
+@media screen and (max-width: 500px) {
     .titleFront {
         height: 100%;
         width: 100%;
