@@ -28,3 +28,36 @@ h3 {
     text-align: left;
     padding-left: 50px;
 }
+
+@media (max-width: 500px) {
+    .titleFront {
+        height: 100%;
+        width: 100%;
+        min-height: 0%;
+        background-color: #516ADB;
+        color: white;
+    }
+    .title {
+        padding-top: 20px;
+    }
+    .subTitle {
+        display: grid;
+        grid-template-columns: auto auto;
+        padding-top: 0px;
+        text-align: left;
+        padding-left: 20px;
+    }
+    h1 {
+        font-family: "OtomanopeeOne-Regular";
+        text-align: left;
+        padding-left: 20px;
+        letter-spacing: 5px;
+        font-weight: bold;
+        font-size: xx-large;
+    }
+    h3 {
+        font-family: "OtomanopeeOne-Regular";
+        font-size: x-large;
+        color: white;
+    }
+}

@@ -3,8 +3,15 @@
 }
 
 .generalCont {
-    display: grid;
-    grid-template-columns: 30% auto;
+    display: block;
+}
+
+@media (max-width: 500px) {
+    .generalCont {
+        display: grid;
+        width: 100%;
+        grid-template-rows: 125px auto;
+    }
 }
 
 
