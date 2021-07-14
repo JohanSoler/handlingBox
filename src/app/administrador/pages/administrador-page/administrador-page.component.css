@@ -29,6 +29,7 @@ h1 {
 .content {
     display: grid;
     height: 80%;
+    margin: 20px;
     grid-template-columns: 80% auto;
 }
 
@@ -78,6 +79,7 @@ body {
         margin-top: 50px;
         height: 80%;
         width: 480px;
+        margin: 0px;
         grid-template-columns: auto;
     }
     footer {
